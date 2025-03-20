@@ -1,0 +1,301 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background colors for each section */
+.section-0 {
+  background-color: #f0f4f8; /* Soft light blue/grey */
+}
+
+.section-1 {
+  background-color: #ffffff; /* Clean white */
+}
+
+.section-2 {
+  background-color: #e9ecef; /* Light grey */
+}
+
+.section-3 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* ทำให้ทุกการ์ดมีความสูงเท่ากัน */
+}
+
+/* บังคับให้ card-body เต็มพื้นที่ */
+.card-body {
+  flex-grow: 1; /* ขยาย card-body ให้เต็มการ์ด */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ซ่อน cardContainer และปุ่ม predict เริ่มต้น */
+#cardContainer {
+  display: none;
+}
+
+#predictButton {
+  display: none;
+}
+
+/* ซ่อนปุ่ม "ทำอีกครั้ง" จนกว่าจะกด "ทำนาย" */
+#againButton {
+  display: none;
+  margin-left: 10px;
+}
+
+/* Grid สำหรับการ์ด */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+  position: relative;
+  border: 1px solid #e0e0e0;
+}
+
+.image-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.image-container-header {
+  background: #f0f4f8;
+  padding: 10px 15px;
+  border-bottom: 1px solid #d0dce0;
+  text-align: left;
+  font-weight: 600;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.image-container-header i {
+  color: #005f8a;
+}
+
+.image-container-body {
+  padding: 15px;
+  text-align: center;
+  flex: 1;
+}
+
+.preview {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.result {
+  margin-top: 16px; /* ระยะห่างด้านบนผลลัพธ์ */
+}
+
+.result h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.progress {
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 25px;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: #0077b6 !important; /* ใช้สีน้ำเงินเข้ม */
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  font-weight: 500;
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+/* Override สีของปุ่ม btn-primary */
+.btn-primary {
+  background-color: #0077b6 !important; /* น้ำเงินเข้ม */
+  border-color: #0077b6 !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #005f8a !important;
+  border-color: #005f8a !important;
+}
+
+/* Override ปุ่ม btn-outline-primary */
+.btn-outline-primary {
+  border-color: #0077b6 !important;
+  color: #0077b6 !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0077b6 !important;
+  color: #fff !important;
+}
+
+/* Override สีข้อความที่ใช้คลาส text-primary */
+.text-primary {
+  color: #0077b6 !important;
+}
+
+/* Override ไอคอนลูกศรซ้าย */
+.fa.fa-arrow-left {
+  color: #0077b6 !important;
+}
+
+button i.fa.fa-arrow-right {
+  color: #0077b6 !important;
+}
+
+.mt-3 {
+  color: #0077b6 !important;
+}
+
+.href {
+  color: #0077b6 !important;
+}
+
+a {
+  color: #0077b6;
+}
+
+h2:after {
+  content: "";
+  position: absolute;
+  background-color: #0077b6;
+  width: 70px;
+  height: 4px;
+  bottom: 0px;
+  left: 0px;
+}
+
+/* ปรับแต่งเฉพาะปุ่มรีเฟรช */
+.btn-refresh {
+  background-color: #0077b6 !important;
+  border-color: #0077b6 !important;
+  color: #fff !important;
+}
+
+.btn-refresh:hover {
+  background-color: #005f8a !important;
+  border-color: #005f8a !important;
+}
+
+.section-5 .account-nav ul li a:hover {
+  color: #005f8a;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #007a70; /* ใช้สีเขียวอมฟ้าเพื่อความมืออาชีพ */
+  border-color: #007a70;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #006d63;
+  border-color: #006d63;
+}
+
+/* Override สีของปุ่ม รีเซ็ต */
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Force all image containers to have equal dimensions */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px; /* Set container height */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;  /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Maintain aspect ratio without stretching */
+}
+
+/* ปรับให้กล่องการ์ดทุกอันสูงเท่ากัน */
+.row .col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.row .col-md-4 .card {
+  flex: 1;
+}
+
+/* ปรับขนาดข้อความเพื่อให้จัดเรียงดีขึ้น */
+.problem-list, .objective-list, .usage-list {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.problem-list li, .objective-list li, .usage-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.problem-list li::before, .objective-list li::before, .usage-list li::before {
+  content: "✔"; /* ใช้ไอคอน ✓ แทน > */
+  color: #0077b6;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.bg-light {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.card .bg-light {
+  max-width: 100%; /* ป้องกันข้อความหลุดจากกรอบ */
+  display: block; /* จัดข้อความให้เป็นระเบียบ */
+}
+
+
+
+
+
+
